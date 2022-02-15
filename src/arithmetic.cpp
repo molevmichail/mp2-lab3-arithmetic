@@ -31,7 +31,7 @@ Tlexeme::Tlexeme(string a1)
 { Size = a1.length();
   TStack <char> S1;
   //разбить на лексемы
-  string a = a1];
+  string a = a1;
   int j = 0;
   string S1 = "";
   string* mLexeme1 = new string[Size];
@@ -215,15 +215,12 @@ double Tlexeme::Calculation(int x)
     if (priority[i]==1)
     { double x,y;
       x=S1.Pop();
-      if(mLexeme[i]=="sin"){S1.Push(sin(x));}
-      else
-      { y=S1.Pop();
+      y=S1.Pop();
         if(mLexeme[i]=="+"){ S1.Push(x+y); }
         if(mLexeme[i]=="-"){ S1.Push(y-x); }
         if(mLexeme[i]=="*"){ S1.Push(x*y); }
         if(mLexeme[i]=="/"){ S1.Push(y/x); }
         if(mLexeme[i]=="^"){ S1.Push(pow(y,x)); }
-      }
     }
   }
     return S1.Pop();
