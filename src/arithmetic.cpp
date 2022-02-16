@@ -17,11 +17,6 @@ double Convert(string a)
 {  string::size_type sz = 0;  
    string a1 = a;
    double res = stoll (a1,&sz,0);
-   a1 = a1.substr(sz);
-   if (!a1.empty())
-   { a1 = a1.substr(1);
-     res = res + (stoll(a1, NULL)) / (pow(10, a1.length()));
-   }
    return res;
 }
 
