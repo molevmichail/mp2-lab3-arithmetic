@@ -10,7 +10,7 @@ int main()
     string a;
     cin >> a;
     Tlexeme A(a);
-    if (A.Check_correct() < 2)
+    if (!A.Check_correct())
       { cout << "Выражение введенно НЕ верно\n";
       }
        else
