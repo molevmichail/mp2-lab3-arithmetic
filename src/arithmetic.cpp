@@ -17,7 +17,7 @@ int PR(string a)
 double Convert(string a)
 {  
       string a1 = a;
-      int res = atoi (a1);
+      int res = stoi (a1);
       return res;
 }
 
@@ -219,7 +219,6 @@ string Tlexeme::Pol()
 
 double Tlexeme::Calculation(int x)
 { 
-      if(Flag!=2){Pol_1(); }
       TStack <double> S1;
       int s = Size, j=0;
       double* M1 = new double[Size];;
