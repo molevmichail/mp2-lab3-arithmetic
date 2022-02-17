@@ -80,7 +80,8 @@ int Tlexeme::Check_correct()
    if (a != 1) { cout << "\tInput error: brackets are entered incorrectly" << endl;  b = 0; }
    a = Check_sign();
    if (a != 1) { cout << "\tInput error: signs of operations are entered incorrectly in place " << a << endl; c = 0}
-  return  b + c;
+   if (b + c < 2) { return 0; }
+   else { return 1; }
 }
 
 int Tlexeme::Check_brack()
@@ -215,7 +216,6 @@ double Tlexeme::Calculation(int x)
         if(mLexeme[i]=="-"){ S1.Push(y-x); }
         if(mLexeme[i]=="*"){ S1.Push(x*y); }
         if(mLexeme[i]=="/"){ S1.Push(y/x); }
-        if(mLexeme[i]=="^"){ S1.Push(pow(y,x)); }
     }
   }
     return S1.Pop();
