@@ -14,9 +14,8 @@ int PR(string a)
 }
 // Конвертировать строку в число
 double Convert(string a)
-{  string::size_type sz = 0;  
-   string a1 = a;
-   double res = stoll (a1,&sz,0);
+{  string a1 = a;
+   int res = atoi (a1);
    return res;
 }
 
