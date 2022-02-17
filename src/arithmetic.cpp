@@ -34,7 +34,7 @@ Tlexeme::Tlexeme(string a1)
 
   for (int i = 0; i < Size; i++)
   { //знаки операций 
-      if ((a[i] == '+') || (a[i] == '*') || (a[i] == '/') || (a[i] == '-') || (a[i] == '^'))
+      if ((a[i] == '+') || (a[i] == '*') || (a[i] == '/') || (a[i] == '-'))
       {
           if (S1 != "") { mLexeme1[j] = S1; priority1[j] = 2; j++; S1 = ""; }
           mLexeme1[j] = a[i];
@@ -54,7 +54,7 @@ Tlexeme::Tlexeme(string a1)
                           {
                               S1 = S1 + a[i];
                           }
-                          else { Flag = 0; } //ошибка не распознаный символ
+                          else { a1.Check_correct() = 0; } //ошибка не распознаный символ
                       }
                   }
               }
@@ -125,7 +125,6 @@ string Tlexeme::Pol()
   for (int i = 0; i < Size; i++)
  {
     if (priority[i] == 4) { Nbrack++; };
-    if (priority[i] == 5) { priority[i] = 1; };
  }
 string* mLexeme1; mLexeme1 = mLexeme; mLexeme = new string[Size - Nbrack];
 int* priority1; priority1 = priority; priority = new int[Size - Nbrack];
