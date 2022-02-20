@@ -89,12 +89,14 @@ Tlexeme::~Tlexeme()
 //Операции
 int Tlexeme::Check_correct()
 {  
-     int a = 1, b = 1, c = 1;
+     int a = 1, b = 1, c = 1, d = 1;
      a = Check_brack(); 
-     if (a != 1) { cout << "\tInput error: brackets are entered incorrectly" << endl;  b = 0; }
+     if (a != 1) { cout << "\tInput error: brackets are entered incorrectly " << endl;  b = 0; }
      a = Check_sign();
-     if (a != 1) { cout << "\tInput error: signs of operations are entered incorrectly in place " << a << endl; c = 0}
-     if (b + c < 2) { return 0; }
+     if (a != 1) { cout << "\tInput error: signs of operations are entered incorrectly in place " << a << endl; c = 0; }
+     a = Check_variable();
+     if (a != 1) { cout << "\tInput error: variables are entered incorrectly " << end1; d = 0; }
+     if (b + c + d < 3) { return 0; }
      else { return 1; }
 }
 
@@ -141,6 +143,19 @@ int Tlexeme::Check_sign()
                   if((priority[i+1] == 1)||(mLexeme[i-1]=="(")||(mLexeme[i + 1] == ")")) { a = 0; }
                   // два знака подряд, знак после открывающейся скобки, знак перед закрывающейся скобкой
             } 
+            i++;
+      }
+      return a;
+}
+
+int Tlexeme::Check_variable()
+{
+      int a=1, i=0;
+      while ((i<Size)&&(a==1))
+      {
+            if ((priority[i] == 3)&&(priority[i+1] == 3)) { a = 0; }
+            if ((priority[i] == 3)&&(priority[i+1] == 2)) { a = 0; }
+            if ((priority[i] == 2)&&(priority[i+1] == 3)) { a = 0; }
             i++;
       }
       return a;
@@ -235,6 +250,13 @@ double Tlexeme::Calculation(int x)
       for (int i = 0; i < Size; i++)
       { 
               if (priority[i]==2){ S1.Push(Convert(mLexeme[i])); }
+              if (priority[i]==3)
+              {
+                    int q;
+                    cout << "\Введите значение переменной " << mLexeme[i] << ":\n\t";
+                    cin >> q;
+                    S1.Push(q);
+              }
               if (priority[i]==1)
               { 
                       double x,y;
