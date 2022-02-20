@@ -51,13 +51,22 @@ Tlexeme::Tlexeme(string a1)
                              mLexeme1[j] = a[i];
                              priority1[j] = 4; j++;
                       }
-                      else //операнды числа
+                      else //операнды-числа
                       {
                              if ((a[i] >= '0') && (a[i] <= '9'))
                              {
                                   S1 = S1 + a[i];
                              }
-                             else { a1.Check_correct() = 0; } //ошибка не распознаный символ
+                             else // операнды-переменные
+                             {
+                                   if(((a[i]>='A')&&(a[i]<='Z'))||((a[i]>='a')&&(a[i]<='z')))
+                                   {
+                                         if (S1!=" ") { mLexeme1[j] = S1; priority1[j] = 2; j++; S1 = " "; }
+                                         mLexeme1[j] = a[i];
+                                         priority1[j] = 3; j++;
+                                   }
+                                   else { a1.Check_correct() = 0; } //ошибка не распознаный символ
+                             }
                       }
                   }
       }
