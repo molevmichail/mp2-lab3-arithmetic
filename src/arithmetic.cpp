@@ -26,7 +26,6 @@ double Convert(string a)
 Tlexeme::Tlexeme(string a1)
 { 
       Size = a1.length();
-      TStack <char> S1;
       //разбить на лексемы
       string a = a1;
       int j = 0;
