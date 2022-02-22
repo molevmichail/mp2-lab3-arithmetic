@@ -6,7 +6,7 @@
 
 TEST(Tlexeme, can_create_Tlexeme)
 {
-	ASSERT_NO_THROW(Tlexeme L);
+	ASSERT_NO_THROW(Tlexeme L());
 }
 TEST(Tlexeme, can_create_Tlexeme_by_string)
 {
@@ -70,7 +70,7 @@ TEST(Tlexeme, can_convert_in_Polish_entry)
 }
 TEST(Tlexeme, can_convert_empty_string_in_Polish_entry)
 {
-	Tlexeme L;
+	Tlexeme L(" ");
 	ASSERT_NO_THROW(L.Pol()); // L.Pol()==0
 }
 TEST(Tlexeme, cant_convert_incorrect_in_Polish_entry)
